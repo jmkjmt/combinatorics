@@ -1,21 +1,19 @@
 \section{Introduction}
-\label{sec:preliminaries}
-Determine whether program terminate is relate to haltin problem.
-Halting problem is 
-Halting problem is a question of determining whether a given program ends for a given input, proposed by Alan Turing~\cite{turing}.
+\label{sec:intro}
+The relationship between program termination and the Halting Problem is a central question in the theory of computation.
+The Halting Problem, introduced by Alan Turing~\cite{turing}, asks whether it is possible to determine, for any given program and input, whether the program will eventually terminate or run forever.
 
-A partial extract from \cite{turing} is as follows:
+A partial extract from Turing's original work is as follows:
 \begin{theorem}
     There can be no machine which, supplied with any one
 $\mathfrak{A}$ of these formulae, will eventually say whether $\mathfrak{A}$ is provable.
 \end{theorem}
-
-To make this easier to understand, it is as follows.
+To put it simply, this can be restated as:
 \begin{theorem}
     No algorithm exists that determine whether terminate or not for all possible programs.
 \end{theorem}
 
-However, the Halting Problem implies that no algorithm can universally determine the termination of all programs, but it does not preclude the possibility of proving the termination of specific programs.
-Consequently, significant efforts have been made to establish termination proofs for as many programs as possible.
-These endeavors are closely related to order theory.
-This report focuses on examining the role of order theory in proving program termination.
+While the Halting Problem establishes that no algorithm can universally decide the termination of all programs, it does not rule out the possibility of proving termination for specific programs.
+As such, significant research has focused on developing methods to establish termination proofs for as many programs as possible.
+These efforts are closely linked to the principles of order theory.
+This report examines how order theory plays a crucial role in proving program termination, with a particular emphasis on its applications in formal verification and termination analysis.
