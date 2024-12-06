@@ -1,33 +1,68 @@
 \section{Several Topics in Program Termination}
-이 섹션에서는 프로그램의 termination을 증명하는데 사용되는 여러 방법들을 소개한다.
+This section introduces major methods used to prove program termination.
 \label{sec:topics}
 \subsection{Well-founded Relation}
-이 장에서는 termination을 formal하게 다루는데 사용되는 well-founded relation에 대해 설명한다.
-다음 정의를 보자:~\cite{order}
+First, let's consider following definition:~\cite{order}
 
 \begin{definition}
     A partially ordered set $(\well, \leq)$ is called well-founded, 
     if $\well$ has no infinite descending chain $\{a_0, a_1, \dots, a_n, \dots \mid n < \omega\}$, i. e. with
-    $a_0 > a_1 >a_2 > a_3 > \dots$ \newline
-    And, $<$ is called a well-founded relation.
+    $a_0 > a_1 >a_2 > a_3 > \dots\ $ Also, $<$ is called a well-founded relation.
 \end{definition}
 \begin{example}
-    자연수 집합 N 에 대해 부등호 $<$ 를 부여하면 (N,<)는 well-founded set이다.
+    The relation $<$ is well-founded over the $\mathbb{N}$, because any sequnce of natural numbers decreasing according to $<$ is finite: e.g.,\\
+    $999 > 400 > 388 > ... > 3 > 1 > 0$
 \end{example}
-
-\subsection{Program Termination}
-A program π, possibly nondeterministic, is terminating if every computation of π
-from an initial state is finite. If there is a computation of π from state x to state
-y, we say that y is reachable from x and write y ≺ x. A state y is reachable if it
-is reachable from an initial state ~\cite{term}
-
-
-그러나 program의 state S 와 well-founded relation R 을 정의하는 것은 어려운 작업이다.
-따라서 Ranking Function을 도입한다.
-ranking function은 S -> N 으로 매핑되는 함수로, termination을 증명하는데 사용된다.
-이는 program state S 를 well-founded set인 자연수 N으로 매핑하는 함수로서
-well-founded relation을 명시적으로 구하는 것이다.
-
 \begin{example}
-    sigma
+    However, the relation $<$ is not well-founded over the $\mathbb{Q}$ or $\mathbb{R}$.
+\end{example}
+\subsection{Program Termination}
+There is several definition related to program termination form ~\cite{term}.
+\begin{definition}
+    A program \textbf{P}, possibly nondeterministic, is terminating if every computation of \textbf{P} from an initial state is finite.
+\end{definition}
+If we can define state of program such as memory state or variable state, following definition is natural.
+\begin{definition}
+    If there is a computation of \textbf{P} from state x to state y, we say that y is reachable from x and write y $\prec$ x.
+    Also, a state y is reachable if it is reachable from an initial state
+\end{definition}
+\begin{theorem}
+    For a given program \textbf{P},
+    $\prec$ is well-founded if and only if given program \textbf{P} terminates.
+\end{theorem}
+
+However, usually formally defining state of program and well-founded relation $\prec$ is difficult.
+So we introduce ranking function to resolve this problem.
+\begin{definition}
+    ranking function $\delta$ is function that map program state to naturaul number such that
+    x $\prec$ y if $\delta$(x) $<$ $\delta$(y) 
+\end{definition}
+So, if we can find ranking function, we can easily prove program termination.
+\begin{example}
+    \begin{algorithm}[t]
+        \caption{Fibonacci}
+        \label{alg:fibonacci}
+        \KwIn{natural number n}
+        \KwOut{nth element of fibonacci sequence}
+        \If{n $<$ 0}{
+            \Return 0
+        }
+        \Else{
+            \If{n $<$ 1}{
+                \Return 1
+            }
+            \Else{
+                $f1 \gets$ Fibonacci$(n-1)$ \\
+                $f2 \gets$ Fibonacci$(n-2)$ \\
+                \Return $f1 + f2$
+            }
+        }
+    \end{algorithm}
+    Consider Algorithm\ref{alg:fibonacci} that return nth element of fiboncci sequnce.
+    In this case, we can define ranking function as just input n.
+    At line 7 and 8, Fibonacci function is called recursively.
+    So Fibonacci$(n-1)$ and Fibonacci$(n-2)$ is reachable from Fibonacci$(n)$.
+    And their ranking function is $n-1, n-2$ repectively.
+    Clearly, ranking function is strictly decreasing.
+    Therefore, program Fibonacci terminates. 
 \end{example}

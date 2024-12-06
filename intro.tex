@@ -1,15 +1,21 @@
 \section{Introduction}
 \label{sec:preliminaries}
-프로그램의 termination을 판단하는 문제는 halting problem과 관련이 있다.
-Halting problem은 주어진 프로그램이 주어진 입력에 대해 종료하는지 판단하는 문제로, Alan Turing이 1936년에 제안한 문제이다~\cite{turing}.
+Determine whether program terminate is relate to haltin problem.
+Halting problem is 
+Halting problem is a question of determining whether a given program ends for a given input, proposed by Alan Turing~\cite{turing}.
 
-이 문제는 다음과 같다.
+A partial extract from \cite{turing} is as follows:
 \begin{theorem}
-    there can be no machine which, supplied with any one
-F of these formulae, will eventually say whether F is provable.
+    There can be no machine which, supplied with any one
+$\mathfrak{A}$ of these formulae, will eventually say whether $\mathfrak{A}$ is provable.
 \end{theorem}
 
-그러나 Halting problem이 시사하는 바는 모든 프로그램에 대해 termination을 판단하는 algorithm이 존재하지 않는다는 것이지, 모든 프로그램의 termination을 보일 수 없다는 것이 아니다.
-따라서 지금까지 최대한 많은 프로그램에 대해서 termination을 증명하고자 하는 시도가 있었다.
-그리고 이런 노력은 order theory와 관련이 있다.
-해당 report는 이러한 부분에 주목하여 order theory가 program termination 증명에서 어떤 역할을 하는지 알아보고자 한다.
+To make this easier to understand, it is as follows.
+\begin{theorem}
+    No algorithm exists that determine whether terminate or not for all possible programs.
+\end{theorem}
+
+However, the Halting Problem implies that no algorithm can universally determine the termination of all programs, but it does not preclude the possibility of proving the termination of specific programs.
+Consequently, significant efforts have been made to establish termination proofs for as many programs as possible.
+These endeavors are closely related to order theory.
+This report focuses on examining the role of order theory in proving program termination.

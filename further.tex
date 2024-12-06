@@ -7,5 +7,10 @@ The base case is proved for the simplest objects, and the induction step is prov
 The proof is complete when all objects are covered by the base case and the induction step.
 Structural induction is used in many areas of computer science, including programming language semantics, type theory, and formal verification.
 \begin{example}
-    tree
+    In computer science, binary tree can be defined as following language. \\
+    \begin{tabular}{rcl}        
+    $Tree ::= Empty \mid\ Node\ (value\ Tree\ Tree) $ 
+    \end{tabular} \\
+    If we want to prove some property of all binary tree, we first prove Empty case, and then, we prove Node (value T1 T2) case with assuming
+    T1 and T2 satisfy desired property.
 \end{example}
