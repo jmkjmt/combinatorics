@@ -1,0 +1,30 @@
+\section{Several Topics in Program Termination}
+이 섹션에서는 프로그램의 termination을 증명하는데 사용되는 여러 방법들을 소개한다.
+\label{sec:topics}
+\subsection{Well-founded Relation}
+이 장에서는 termination을 formal하게 다루는데 사용되는 well-founded relation에 대해 설명한다.
+다음 정의를 보자:~\cite{order}
+
+\begin{definition}
+    A quasi-ordered set $(\well, \leq)$ is called well-founded, 
+    if $\well$ has no infinite descending chain $\{a_0, a_1, \dots, a_n, \dots \mid n < \omega\}$, i. e. with
+    $a_0 > a_1 >a_2 > a_3 > \dots$. \newline
+    And, $<$ is called a well-founded relation.
+\end{definition}
+여기서 quasi-ordere 는 transitive, reflexive를 만족하는 relation을 의미한다.
+\begin{example}
+    Example.
+    asldfjaklsdjflkalsdf
+\end{example}
+termination과의 관계: program state S 에대해 R <= (S X S)
+R이 well-founded relation이면 termination이 보장된다.
+
+\subsection{Ranking Function}
+ranking function은 S -> N 으로 매핑되는 함수로, termination을 증명하는데 사용된다.
+이는 program state S 를 well-founded set인 자연수 N으로 매핑하는 함수로서
+well-founded relation을 명시적으로 구하는 것이다.
+
+\begin{example}
+    Example.
+    asldfjaklsdjflkalsdf
+\end{example}

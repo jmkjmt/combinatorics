@@ -1,10 +1,29 @@
 \documentclass{article}
+\usepackage{kotex}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\newcommand{\mathmode}[1]{\relax\ifmmode#1\else$#1$\fi}
+\newcommand{\well}{\mathmode{W}}
 
+\theoremstyle{plain}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
 \title{\textbf{Program Termination and Order Theory}}
 \author{\textbf{Mingyu Jo} \\ Computer Science and Engineering, Korea University}
 
 \begin{document}
 \maketitle
-\input{preliminaries.tex}
+\input{intro.tex}
+\input{topic.tex}
+\input{further.tex}
+\input{conclusion.tex}
 
+\bibliography{refs}
+\bibliographystyle{plain}
 \end{document}
