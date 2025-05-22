@@ -3,5 +3,6 @@
 *.fls
 *.log
 *.pdf
+*.blg
 *.synctex.gz
 *.fdb_latexmk
